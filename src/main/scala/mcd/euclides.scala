@@ -1,25 +1,15 @@
 package cl.uchile.dcc
 package mcd
 import scala.io.StdIn.readInt
-/*
-El siguiente import es necesario sí quieren leer números enteros desde la consola.
-Pueden leer un entero de la siguiente forma:
-
-  val a = readInt()
-  
-y luego usarlo como deseen
-
-  val res = a + 5
-  println(s"El resultado del número ingresado más 5 es $res")
-  
-*/
-
 
 @main def euclidesInteractivo(): Unit = {
   // Inicio de la zona donde deben editar el código
 
-  //objetos: dos numeros,
-  //metodos: calcular el MCD entre ellos utilizando el algoritmo de Euclides
+  /*
+   * pedirnumeros utiliza getnum.
+   * getnum solicita al usuario un numero Int
+   * pedirnumeros solicita valores los valores y guarda en la tupla (a, b)
+   */
 
   def pedirnumeros(): (Int, Int) = {
 
@@ -31,14 +21,26 @@ y luego usarlo como deseen
 
     val a = getnum(s"Ingrese primer numero (0 para terminar): ")
     val b = getnum(s"Ingrese segundo numero: ")
-
     (a, b)
+
   }
+
+  /*
+   * mcd recibe una tupla (a, b)
+   * encuentra el mcd siguiendo las reglas de README.md
+   */
 
   def mcd(a: Int, b: Int): Int = {
     if (b == 0) a
     else mcd(b, a % b)
   }
+
+  /*
+   * loop solicita los valores (a, b) mediante pedirnumeros(),
+   * siempre y cuando el valor a ingresado sea distinto de 0,
+   * se calcula el mcd entre (a, b) mediante mcd(a, b) y se entrega al usuario
+   * vuelve a iniciar el loop.
+   */
 
   def loop(): Unit = {
 
@@ -51,7 +53,7 @@ y luego usarlo como deseen
   }
 
   loop()
-  println("No le sé al máximo común divisor :(")
+  println("Exito, si le supe al minimo comun divisor")
   
   // Fin de la zona donde deben editar el código
 }
